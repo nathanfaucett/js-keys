@@ -8,13 +8,13 @@ var nativeKeys = Object.keys;
 
 if (!isNative(nativeKeys)) {
     nativeKeys = function keys(obj) {
-        var hasFn = has,
+        var localHas = has,
             out = [],
             i = 0,
             key;
 
         for (key in obj) {
-            if (hasFn(obj, key)) {
+            if (localHas(obj, key)) {
                 out[i++] = key;
             }
         }
