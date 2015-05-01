@@ -6,6 +6,13 @@ var has = require("has"),
 var nativeKeys = Object.keys;
 
 
+module.exports = keys;
+
+
+function keys(obj) {
+    return nativeKeys(isObject(obj) ? obj : Object(obj));
+}
+
 if (!isNative(nativeKeys)) {
     nativeKeys = function keys(obj) {
         var localHas = has,
@@ -22,7 +29,3 @@ if (!isNative(nativeKeys)) {
         return out;
     };
 }
-
-module.exports = function keys(obj) {
-    return nativeKeys(isObject(obj) ? obj : Object(obj));
-};
