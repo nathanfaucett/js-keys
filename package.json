@@ -7,6 +7,9 @@
     "url": "https://github.com/nathanfaucett/keys.git"
   },
   "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "keywords": [
     "keys",
     "keys.js"
