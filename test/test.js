@@ -8,6 +8,7 @@ describe("keys", function() {
         assert.deepEqual(keys(undefined), []);
         assert.deepEqual(keys(0), []);
         assert.deepEqual(keys(""), []);
+        assert.deepEqual(keys("hey"), ["0", "1", "2"]);
         assert.deepEqual(keys({}), []);
         assert.deepEqual(keys([]), []);
         assert.deepEqual(keys(/./), []);

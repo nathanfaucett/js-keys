@@ -1,5 +1,6 @@
 var has = require("has"),
     isNative = require("is_native"),
+    isNullOrUndefined = require("is_null_or_undefined"),
     isObject = require("is_object");
 
 
@@ -9,19 +10,23 @@ var nativeKeys = Object.keys;
 module.exports = keys;
 
 
-function keys(obj) {
-    return nativeKeys(isObject(obj) ? obj : Object(obj));
+function keys(value) {
+    if (isNullOrUndefined(value)) {
+        return [];
+    } else {
+        return nativeKeys(isObject(value) ? value : Object(value));
+    }
 }
 
 if (!isNative(nativeKeys)) {
-    nativeKeys = function keys(obj) {
+    nativeKeys = function() {
         var localHas = has,
             out = [],
             i = 0,
             key;
 
-        for (key in obj) {
-            if (localHas(obj, key)) {
+        for (key in value) {
+            if (localHas(value, key)) {
                 out[i++] = key;
             }
         }
