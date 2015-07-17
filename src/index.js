@@ -19,7 +19,7 @@ function keys(value) {
 }
 
 if (!isNative(nativeKeys)) {
-    nativeKeys = function() {
+    nativeKeys = function(value) {
         var localHas = has,
             out = [],
             i = 0,
