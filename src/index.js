@@ -1,7 +1,7 @@
-var has = require("has"),
-    isNative = require("is_native"),
-    isNullOrUndefined = require("is_null_or_undefined"),
-    isObject = require("is_object");
+var has = require("@nathanfaucett/has"),
+    isNative = require("@nathanfaucett/is_native"),
+    isNullOrUndefined = require("@nathanfaucett/is_null_or_undefined"),
+    isObject = require("@nathanfaucett/is_object");
 
 
 var nativeKeys = Object.keys;
@@ -19,7 +19,7 @@ function keys(value) {
 }
 
 if (!isNative(nativeKeys)) {
-    nativeKeys = function(value) {
+    nativeKeys = function keys(value) {
         var localHas = has,
             out = [],
             i = 0,
